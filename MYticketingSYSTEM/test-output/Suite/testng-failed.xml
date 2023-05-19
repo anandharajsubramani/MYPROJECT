@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.utility.ListenerClass"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.testcases.NEXTPAGEtest">
+        <methods>
+          <include name="launchbrowser1"/>
+          <include name="aftersuite"/>
+          <include name="teardown"/>
+          <include name="searchtest"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.testcases.NEXTPAGEtest -->
+      <class name="com.testcases.ENDTOENDTESTING">
+        <methods>
+          <include name="launchbrowser1"/>
+          <include name="teardown"/>
+          <include name="endtoend"/>
+          <include name="setup"/>
+          <include name="aftersuite"/>
+        </methods>
+      </class> <!-- com.testcases.ENDTOENDTESTING -->
+      <class name="com.testcases.LOGINPAGEtest">
+        <methods>
+          <include name="launchbrowser1"/>
+          <include name="aftersuite"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+          <include name="logintest"/>
+        </methods>
+      </class> <!-- com.testcases.LOGINPAGEtest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
