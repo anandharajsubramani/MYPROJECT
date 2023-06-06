@@ -16,7 +16,7 @@ public class Logoutpage extends BASEclass{
 		public Logoutpage() {
 			PageFactory.initElements(getDriver(), this);
 		}
-		public void myprofile() throws Throwable {
+		public void myprofile111() throws Throwable {
 			Actionsclass.click(getDriver(), iconprofilebutton);
 			
 			

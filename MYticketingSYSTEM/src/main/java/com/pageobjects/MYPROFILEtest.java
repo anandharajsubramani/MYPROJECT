@@ -8,12 +8,12 @@ import com.base.BASEclass;
 import com.mystore.actiondriver.Actionsclass;
 
 public class MYPROFILEtest extends BASEclass {
-	@FindBy(xpath="//div[@class='pros-sml']")
-    WebElement iconprofilebutton;
+
 	 @FindBy(xpath=" //*[@id=\"popupField\"]/li[2]/a   ")
 	    WebElement myprofile;
 		
-	
+	    @FindBy(xpath="//i[@class='fas fa-sign-out-alt']")
+	    WebElement signout;
 		
 		@FindBy(id="txtName")
 	   WebElement entername;
@@ -42,10 +42,7 @@ public class MYPROFILEtest extends BASEclass {
 	public MYPROFILEtest() {
 		PageFactory.initElements(getDriver(), this);
 	}
-	public void myprofile() throws Throwable {
-		Actionsclass.click(getDriver(), iconprofilebutton);
-		
-	}
+	
 	public void myprofile1() throws Throwable {
 		Actionsclass.click(getDriver(), myprofile);
 		
@@ -74,4 +71,9 @@ public class MYPROFILEtest extends BASEclass {
 		Actionsclass.JSClick(getDriver(),savebutton );
 		return new Homepage();
 		}
+	public Homepage logout() throws Throwable {
+		Actionsclass.click(getDriver(), signout);
+		return new Homepage();
+		
+	}
 }

@@ -9,16 +9,18 @@
     <groups>
     <run><include name="smoke"></include>
     </run>
-    </groups>
+    </groups> 
     <classes>
-      <class name="com.testcases.TICKETSCREATIONtest"/>
-      <class name="com.testcases.LOGINPAGEtest"/>
-      <class name="com.testcases.ENDTOENDTESTING"/>
-      <class name="com.testcases.NEXTPAGEtest"/>
-      <class name="com.testcases.SEARCHBUTTONtest"/>
-      <class name="com.testcases.STARTandENDtest"/>
-      <class name="com.testcases.Homepagetest"/>
-      <class name="com.testcases.MYprofileeditTEST"/>
+  <!-- <class name="com.USER_LOGIN_testcases.NEXTPAGEtest"/>
+      <class name="com.USER_LOGIN_testcases.Homepagetest"/>
+      <class name="com.USER_LOGIN_testcases.MYprofileeditTEST"/>
+      <class name="com.USER_LOGIN_testcases.SEARCHBUTTONtest"/>
+      <class name="com.USER_LOGIN_testcases.LOGINPAGEtest"/>
+      <class name="com.USER_LOGIN_testcases.ENDTOENDTESTING"/>
+      <class name="com.USER_LOGIN_testcases.TICKETSCREATIONtest"/>
+      <class name="com.USER_LOGIN_testcases.STARTandENDtest"/>-->
+     <!-- <class name="com.USER_LOGIN_testcases.REOPEN_test"/>-->
+      <class name="com.USER_LOGIN_testcases.CLOSE_test"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

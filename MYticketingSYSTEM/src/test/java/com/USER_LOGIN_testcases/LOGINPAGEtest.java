@@ -1,4 +1,4 @@
-package com.testcases;
+package com.USER_LOGIN_testcases;
 
 
 import org.testng.Assert;
@@ -29,7 +29,7 @@ public class LOGINPAGEtest  extends BASEclass{
 	public void teardown() {
 		
 		//System.out.println("m,;lfbdg");
-		getDriver().quit();
+		//getDriver().quit();
 	}
 	
 	

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Suite">  
 <listeners>
 <listener class-name="com.utility.ListenerClass"></listener>
 </listeners>
@@ -11,14 +11,14 @@
     </run>
     </groups>
     <classes>
-      <class name="com.testcases.TICKETSCREATIONtest"/>
-      <class name="com.testcases.LOGINPAGEtest"/>
-      <class name="com.testcases.ENDTOENDTESTING"/>
-      <class name="com.testcases.NEXTPAGEtest"/>
-      <class name="com.testcases.SEARCHBUTTONtest"/>
-      <class name="com.testcases.STARTandENDtest"/>
-      <class name="com.testcases.Homepagetest"/>
-      <class name="com.testcases.MYprofileeditTEST"/>
+   <class name="com.USER_LOGIN_testcases.NEXTPAGEtest"/>
+      <class name="com.USER_LOGIN_testcases.Homepagetest"/>
+      <class name="com.USER_LOGIN_testcases.MYprofileeditTEST"/>
+      <class name="com.USER_LOGIN_testcases.SEARCHBUTTONtest"/>
+      <class name="com.USER_LOGIN_testcases.LOGINPAGEtest"/>
+      <class name="com.USER_LOGIN_testcases.ENDTOENDTESTING"/>
+      <class name="com.USER_LOGIN_testcases.TICKETSCREATIONtest"/>
+      <class name="com.USER_LOGIN_testcases.STARTandENDtest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

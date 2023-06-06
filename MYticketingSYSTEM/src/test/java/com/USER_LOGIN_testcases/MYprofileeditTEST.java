@@ -1,4 +1,4 @@
-package com.testcases;
+package com.USER_LOGIN_testcases;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -35,7 +35,7 @@ public class MYprofileeditTEST extends BASEclass {
 	//	driver.quit();
 		}
 	@Test(groups="regression")
-	public void  ticketscreation() throws Throwable {
+	public void  MYPROFILEEDIT() throws Throwable {
 		homepage = new Homepage();
 		MYPROFILEtest profilecreation = homepage.myprofile();
 		//boolean results = Ticketcreation.validateticketcreatepage();

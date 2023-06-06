@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.testcases.TICKETSCREATIONtest">
+      <class name="com.ADMIN_LOGIN_testcases.EMPOLYEE_TEST">
         <methods>
-          <include name="setup"/>
-          <include name="ticketscreation"/>
           <include name="launchbrowser1"/>
+          <include name="assignfunction"/>
+          <include name="setup"/>
+          <include name="aftersuite"/>
           <include name="teardown"/>
         </methods>
-      </class> <!-- com.testcases.TICKETSCREATIONtest -->
+      </class> <!-- com.ADMIN_LOGIN_testcases.EMPOLYEE_TEST -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

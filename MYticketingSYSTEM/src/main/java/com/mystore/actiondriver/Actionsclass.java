@@ -40,9 +40,11 @@ public class Actionsclass extends BASEclass  {
 	}
 
 	public static void click(WebDriver driver, WebElement ele)throws Throwable {
-
+        //System.out.println("hfhbf");
+		Thread.sleep(2222);
 		Actions act = new Actions(driver);
-		act.moveToElement(ele).click().build().perform();
+		act.moveToElement(ele);
+		act.click().build().perform();
 
 	}
 
@@ -132,12 +134,13 @@ public class Actionsclass extends BASEclass  {
 		System.out.println(text);
 		try {
 			flag = ele.isDisplayed();
+			System.out.println(flag);
 			ele.clear();
 			ele.sendKeys(text);
 			// logger.info("Entered text :"+text);
 			flag = true;
 		} catch (Exception e) {
-			System.out.println("Location Not found");
+			System.out.println("Location Not found"+e);
 			flag = false;
 		} finally {
 			if (flag) {

@@ -1,4 +1,4 @@
-package com.testcases;
+package com.USER_LOGIN_testcases;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -37,12 +37,10 @@ public class ENDTOENDTESTING extends BASEclass {
 	
 	
   @Test(groups="regression")
-	public void endtoend () throws Throwable {
+	public void endtoenduserLOGIN() throws Throwable {
 	  homepage= new Homepage();
 	  Ticketcreation=homepage.ticketscreationbutton();
-		//boolean results = Ticketcreation.validateticketcreatepage();
-		// Assert.assertTrue(results);
-		 Ticketcreation.entertitle("anishalalala");
+	  Ticketcreation.entertitle("anishalalala");
 		 Ticketcreation.selectpriority(2);
 		 Ticketcreation.selectpublisher(0);
 		 Ticketcreation.selecttool(2);
@@ -50,21 +48,16 @@ public class ENDTOENDTESTING extends BASEclass {
 		 Ticketcreation.enterdescription("kuhrgehkh");
 		 homepage=Ticketcreation.clickonticketsbutton();
 		homepage.validatemylist();
-		searchresultpage = homepage.searchtickets("p1");
-		searchresultpage.userclickontickets();
-		Thread.sleep(3333);
-		 NEXTANDPRIVIOUSPAGEtest = searchresultpage.addtionals();
-  MYPROFILEtest = NEXTANDPRIVIOUSPAGEtest.nextpage();
-  MYPROFILEtest.myprofile();
-  MYPROFILEtest.myprofile1();	
-  MYPROFILEtest.entername("");
-  MYPROFILEtest.enterconpassword("");
-  MYPROFILEtest.enteremail("");
-  MYPROFILEtest.enterpassword("");
-  MYPROFILEtest.enterphoneno("");
-  homepage=MYPROFILEtest.clickonsaveprofilebutton();
-  homepage.validatelogo();
-  homepage.gettitleofhomepage();
+        MYPROFILEtest = NEXTANDPRIVIOUSPAGEtest.nextpage();
+        MYPROFILEtest.myprofile1();	
+        MYPROFILEtest.entername("");
+        MYPROFILEtest.enterconpassword("");
+        MYPROFILEtest.enteremail("");
+        MYPROFILEtest.enterpassword("");
+        MYPROFILEtest.enterphoneno("");
+        homepage=MYPROFILEtest.clickonsaveprofilebutton();
+        homepage.validatelogo();
+        homepage.gettitleofhomepage();
   
 		}
   

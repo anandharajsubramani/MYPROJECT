@@ -1,5 +1,6 @@
-package com.testcases;
+package com.USER_LOGIN_testcases;
 
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -7,11 +8,14 @@ import org.testng.annotations.Test;
 
 import com.base.BASEclass;
 import com.pageobjects.Homepage;
-import com.pageobjects.Searchresultspage;
 
-public class SEARCHBUTTONtest extends BASEclass{
+public class Homepagetest extends BASEclass {
+	
+	
 	Homepage homepage ;
-	Searchresultspage searchresultpage;
+	
+	
+	
 	@Parameters("browser")
 	@BeforeMethod(groups=  {"smoke","sanity","regression"})
 	public void setup(String browser) throws Throwable {
@@ -20,18 +24,22 @@ public class SEARCHBUTTONtest extends BASEclass{
 	}
 	
 	
+	
 	@AfterMethod(groups=  {"smoke","sanity","regression"})
 	public void teardown() {
 		
 		System.out.println("m,;lfbdg");
-		//driver.quit();
+		getDriver().quit();
 		}
+	
 	@Test(groups="smoke")
-	public void  searchtest() throws Throwable {
-		homepage = new Homepage();
-		searchresultpage=homepage.searchtickets("p1");
-		searchresultpage.userclickontickets();
-		Thread.sleep(3333);
-		searchresultpage.addtionals();
+	public void mylist() throws Throwable {
+	 homepage = new Homepage();
+	homepage.validatemylist();
+	 
+	 
 	}
+	
+	
+	
 }

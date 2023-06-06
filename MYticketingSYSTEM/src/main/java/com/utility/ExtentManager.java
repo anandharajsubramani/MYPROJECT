@@ -31,6 +31,7 @@ public class ExtentManager {
 		extent.setSystemInfo("Browser", "Chrome");
 	}
 	public static void endReport() {
+		System.out.println("hbf");
 		extent.flush();
 	}
 	

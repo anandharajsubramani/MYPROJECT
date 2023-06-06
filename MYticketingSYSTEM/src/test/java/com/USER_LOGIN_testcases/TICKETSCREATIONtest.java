@@ -1,4 +1,4 @@
-package com.testcases;
+package com.USER_LOGIN_testcases;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -30,7 +30,7 @@ public class TICKETSCREATIONtest extends BASEclass {
 		System.out.println("m,;lfbdg");
 		Thread.sleep(2222);
 		logout.myprofile();
-		 logout.logout();
+		// logout.logout();
 	//	driver.quit();
 		}
 	@Test(groups="sanity")
