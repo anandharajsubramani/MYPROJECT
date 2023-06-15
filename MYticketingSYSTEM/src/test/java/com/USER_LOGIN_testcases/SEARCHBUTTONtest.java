@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import com.base.BASEclass;
 import com.pageobjects.Homepage;
+import com.pageobjects.MYPROFILEtest;
 import com.pageobjects.Searchresultspage;
 
 public class SEARCHBUTTONtest extends BASEclass{
@@ -21,17 +22,19 @@ public class SEARCHBUTTONtest extends BASEclass{
 	
 	
 	@AfterMethod(groups=  {"smoke","sanity","regression"})
-	public void teardown() {
+	public void teardown() throws Throwable {
 		
-		System.out.println("m,;lfbdg");
-		//driver.quit();
+		MYPROFILEtest jk = homepage.myprofile();
+	    jk.logout();
+		getDriver().quit();
 		}
 	@Test(groups="smoke")
 	public void  searchtest() throws Throwable {
 		homepage = new Homepage();
 		homepage.searchtickets("p1");
-		homepage.eyeviewbutton();
+		//homepage.userpencilbutton(); user login
+		//homepage.agent_pencilbutton();  agent login
 		Thread.sleep(3333);
-		searchresultpage.addtionals();
+		homepage=searchresultpage.addtionals();
 	}
 }

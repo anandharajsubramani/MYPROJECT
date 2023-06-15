@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ <listeners>
+<listener class-name="com.utility.ListenerClass"></listener>
+</listeners>
+  <test thread-count="5" name="Test">
+   <parameter name="browser" value="chrome"></parameter>
+    <classes>
+       <!--  <class name="com.USER_LOGIN_testcases.NEXTPAGEtest"/>
+       <class name="com.USER_LOGIN_testcases.CLOSE_test"/>-->
+    <class name="com.USER_LOGIN_testcases.REOPEN_test"/>
+  <!-- <class name="com.USER_LOGIN_testcases.Homepagetest"/>
+      <class name="com.USER_LOGIN_testcases.SEARCHBUTTONtest"/>
+      <class name="com.USER_LOGIN_testcases.MYprofileeditTEST"/>
+      
+      <class name="com.USER_LOGIN_testcases.LOGINPAGEtest"/>
+      <class name="com.USER_LOGIN_testcases.ENDTOENDTESTING"/>
+      <class name="com.USER_LOGIN_testcases.TICKETSCREATIONtest"/>
+      <class name="com.USER_LOGIN_testcases.STARTandENDtest"/>-->
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

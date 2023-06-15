@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.base.BASEclass;
 import com.mystore.actiondriver.Actionsclass;
+import com.utility.Log;
 
 public class MYPROFILEtest extends BASEclass {
 
@@ -44,26 +45,32 @@ public class MYPROFILEtest extends BASEclass {
 	}
 	
 	public void myprofile1() throws Throwable {
+		Log.info("click on the profile option ");
 		Actionsclass.click(getDriver(), myprofile);
 		
 	}
 	public void entername(String titledes) throws Throwable {
+		Log.info("enter the name ");
 		Actionsclass.type(entername, titledes);
 		
 	}
 	public void enterphoneno(String titledes) throws Throwable {
+		Log.info("enter the phone number ");
 		Actionsclass.type(enterphoneno, titledes);
 		
 	}
 	public void enteremail(String titledes) throws Throwable {
+		Log.info("enter the email id ");
 		Actionsclass.type(enteremail, titledes);
 		
 	}
 	public void enterpassword(String titledes) throws Throwable {
+		Log.info("enter the password ");
 		Actionsclass.type(enterpassword, titledes);
 		
 	}
 	public void enterconpassword(String titledes) throws Throwable {
+		Log.info("enter the conform password ");
 		Actionsclass.type(enterconpassword, titledes);
 		
 	}
@@ -71,9 +78,9 @@ public class MYPROFILEtest extends BASEclass {
 		Actionsclass.JSClick(getDriver(),savebutton );
 		return new Homepage();
 		}
-	public Homepage logout() throws Throwable {
+	public Userpage logout() throws Throwable {
 		Actionsclass.click(getDriver(), signout);
-		return new Homepage();
+		return new Userpage();
 		
 	}
 }

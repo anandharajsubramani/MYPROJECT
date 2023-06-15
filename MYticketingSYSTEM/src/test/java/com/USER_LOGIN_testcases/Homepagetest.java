@@ -8,10 +8,11 @@ import org.testng.annotations.Test;
 
 import com.base.BASEclass;
 import com.pageobjects.Homepage;
+import com.pageobjects.MYPROFILEtest;
 
 public class Homepagetest extends BASEclass {
 	
-	
+	MYPROFILEtest profilecreation;
 	Homepage homepage ;
 	
 	
@@ -26,10 +27,11 @@ public class Homepagetest extends BASEclass {
 	
 	
 	@AfterMethod(groups=  {"smoke","sanity","regression"})
-	public void teardown() {
+	public void teardown() throws Throwable {
+		 profilecreation = homepage.myprofile();
+		profilecreation.logout();
+		 getDriver().quit();
 		
-		System.out.println("m,;lfbdg");
-		getDriver().quit();
 		}
 	
 	@Test(groups="smoke")

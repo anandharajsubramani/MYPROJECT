@@ -10,11 +10,12 @@ import org.testng.annotations.Test;
 import com.base.BASEclass;
 import com.dataprovider.Dataproviders;
 import com.pageobjects.Homepage;
+import com.pageobjects.MYPROFILEtest;
 import com.utility.Log;
 
 public class LOGINPAGEtest  extends BASEclass{
 	 Homepage homepage ;
-	 
+	 MYPROFILEtest profilecreation;
 	 
 	 @Parameters("browser")
 	 @BeforeMethod(groups=  {"smoke","sanity","regression"})
@@ -26,10 +27,10 @@ public class LOGINPAGEtest  extends BASEclass{
 	
 	
 	@AfterMethod(groups=  {"smoke","sanity","regression"})
-	public void teardown() {
-		
-		//System.out.println("m,;lfbdg");
-		//getDriver().quit();
+	public void teardown() throws Throwable {
+	      profilecreation = homepage.myprofile();
+			profilecreation.logout();
+			 getDriver().quit();
 	}
 	
 	

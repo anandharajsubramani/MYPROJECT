@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ <listeners>
+<listener class-name="com.utility.ListenerClass"></listener>
+</listeners>
+  <test thread-count="5" name="Test">
+   <parameter name="browser" value="chrome"></parameter>
+    <classes>
+  
+     <class name="com.AGENT_LOGIN_testcases.Homepagetest"/>
+       <class name="com.AGENT_LOGIN_testcases.MYprofileeditTEST"/>
+      <class name="com.AGENT_LOGIN_testcases.SEARCHBUTTONtest"/>
+        <class name="com.AGENT_LOGIN_testcases.ASSIGN_test"/>
+      <class name="com.AGENT_LOGIN_testcases.NEEDMOREINFO_test"/>
+       <class name="com.AGENT_LOGIN_testcases.REVERT_test"/>  
+       <class name="com.AGENT_LOGIN_testcases.INPROGRESS_test"/>
+        <class name="com.AGENT_LOGIN_testcases.INprogresstab_test"/>
+         <class name="com.AGENT_LOGIN_testcases.SPLIT_test"/>
+         <class name="com.AGENT_LOGIN_testcases.RESpondedtab_test"/>
+       <class name="com.AGENT_LOGIN_testcases.REOPENtab_test"/> 
+       <class name="com.AGENT_LOGIN_testcases.Reassigntab_test"/>
+ <!--      <class name="com.AGENT_LOGIN_testcases.ENDTOEND_test"/>-->
+      <class name="com.AGENT_LOGIN_testcases.SLA_pageTEST"/>
+      
+     
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

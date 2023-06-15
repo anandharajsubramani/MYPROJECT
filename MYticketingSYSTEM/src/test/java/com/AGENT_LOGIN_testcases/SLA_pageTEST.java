@@ -8,14 +8,15 @@ import org.testng.annotations.Test;
 import com.base.BASEclass;
 import com.pageobjects.Homepage;
 import com.pageobjects.MYPROFILEtest;
-import com.pageobjects.Searchresultspage;
+import com.pageobjects.SLAPAGE;
 import com.pageobjects.Ticketseditpage;
 
-public class SEARCHBUTTONtest extends BASEclass{
+public class SLA_pageTEST extends BASEclass  {
+	Ticketseditpage logout;
 	Homepage homepage ;
-	Searchresultspage searchresultpage;
-	Ticketseditpage editticketz;
-	Homepage logout;
+	MYPROFILEtest jk ;
+	   SLAPAGE SLAMODULE ;
+	
 	@Parameters("browser")
 	@BeforeMethod(groups=  {"smoke","sanity","regression"})
 	public void setup(String browser) throws Throwable {
@@ -24,20 +25,23 @@ public class SEARCHBUTTONtest extends BASEclass{
 	}
 	
 	
+	
 	@AfterMethod(groups=  {"smoke","sanity","regression"})
 	public void teardown() throws Throwable {
-		
-		MYPROFILEtest jk = logout.myprofile();
+	
+		 jk = homepage.myprofile();
 	    jk.logout();
 		getDriver().quit();
 		}
+	
 	@Test(groups="smoke")
-	public void  searchoptiontest() throws Throwable {
-		homepage = new Homepage();
-		homepage.agentticketpage();
-		 editticketz = homepage.searchtickets("p1");
-		//searchresultpage.userclickontickets();
-		 searchresultpage = editticketz .editthetickets1();
-		logout=searchresultpage.addtionals();
+	public void sla_modulepage() throws Throwable {
+	 homepage = new Homepage();
+ SLAMODULE = homepage.sla();
+ homepage=SLAMODULE.sladropdown("SESAME");
+ 
+
+	 
+	 
 	}
 }

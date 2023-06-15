@@ -18,7 +18,7 @@
        <!-- <class name="com.AGENT_LOGIN_testcases.INPROGRESS_test"/>-->
        <!-- <class name="com.AGENT_LOGIN_testcases.SPLIT_test"/>-->
       <!-- <class name="com.AGENT_LOGIN_testcases.CHANGEDUEDATE_test"/>-->
-      <!-- <class name="com.AGENT_LOGIN_testcases.RESPONSE_test"/>-->
+      <!-- <class name="com.AGENT_LOGIN_testcases.INprogresstab_test"/>-->
          <!--<class name="com.AGENT_LOGIN_testcases.ENDTOEND_test"/>-->
          <class name="com.ADMIN_LOGIN_testcases.EMPOLYEE_TEST"/>
     </classes>

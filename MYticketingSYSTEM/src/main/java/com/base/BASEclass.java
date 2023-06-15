@@ -122,6 +122,7 @@ public static WebDriver getDriver() {
 
 
 
+@SuppressWarnings("deprecation")
 @Parameters("browser")
 public static void launchbrowser(String asd  ) throws Throwable{
 	
@@ -137,6 +138,7 @@ public static void launchbrowser(String asd  ) throws Throwable{
 	}
 	getDriver().manage().window().maximize();
 	getDriver().manage().deleteAllCookies();
+	getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	/* ChromeOptions chromeOptions = new ChromeOptions();
      chromeOptions.addArguments("--remote-allow-origins=*","ignore-certificate-errors");
    driver= new ChromeDriver(chromeOptions);

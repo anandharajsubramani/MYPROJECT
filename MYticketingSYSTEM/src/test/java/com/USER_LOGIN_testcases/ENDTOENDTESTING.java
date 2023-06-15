@@ -48,7 +48,8 @@ public class ENDTOENDTESTING extends BASEclass {
 		 Ticketcreation.enterdescription("kuhrgehkh");
 		 homepage=Ticketcreation.clickonticketsbutton();
 		homepage.validatemylist();
-        MYPROFILEtest = NEXTANDPRIVIOUSPAGEtest.nextpage();
+		homepage= NEXTANDPRIVIOUSPAGEtest.nextpage();
+		MYPROFILEtest=homepage.myprofile();
         MYPROFILEtest.myprofile1();	
         MYPROFILEtest.entername("");
         MYPROFILEtest.enterconpassword("");

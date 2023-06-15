@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.base.BASEclass;
+import com.utility.Log;
 
 public class NEXTANDPRIVIOUSPAGEtest extends BASEclass{
 	
@@ -24,17 +25,17 @@ public class NEXTANDPRIVIOUSPAGEtest extends BASEclass{
 	public NEXTANDPRIVIOUSPAGEtest () {
 		PageFactory.initElements(getDriver(), this);
 	}
-	public MYPROFILEtest nextpage() throws FileNotFoundException, InterruptedException {
+	public Homepage nextpage() throws FileNotFoundException, InterruptedException {
 		 List<String> namelist= new ArrayList<String>();
-		
+			Log.info("next and peivious option functionality");
 	     List<WebElement> listofnames;
-	     JavascriptExecutor js = (JavascriptExecutor)driver;
+	     JavascriptExecutor js = (JavascriptExecutor)getDriver();
 	     js.executeScript("window.scroll(0,5000)");
-	     Thread.sleep(3333);
+	    
 	     WebElement ff = getDriver().findElement(By.xpath("//*[@id='tblDashboard_length']/label/select"));
-	     Thread.sleep(3333);
+	     
 	     Select slect = new Select(ff);
-	    	slect.selectByIndex(2);
+	    	slect.selectByIndex(0);
 	     int sizeofpagination = getDriver().findElements(By.xpath("//div[@class='dataTables_paginate paging_simple_numbers']//a")).size();
 	     System.out.println("dddddddd"+ sizeofpagination);
 	     int pageCount = sizeofpagination-2;
@@ -69,7 +70,7 @@ public class NEXTANDPRIVIOUSPAGEtest extends BASEclass{
 	      else {
 	  	   System.out.println("no pagination in this page");
 	     }
-	     return new MYPROFILEtest();
+	     return new Homepage();
 		}
 	
 	

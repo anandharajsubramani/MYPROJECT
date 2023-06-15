@@ -27,26 +27,23 @@ public class MYprofileeditTEST extends BASEclass {
 	
 	@AfterMethod(groups=  {"smoke","sanity","regression"})
 	public void teardown() throws Throwable {
-		
-		System.out.println("m,;lfbdg");
-		Thread.sleep(2222);
-		//logout.myprofile();
-		// logout.logout();
-	//	driver.quit();
+		profilecreation = homepage.myprofile();
+		profilecreation.logout();
+		 getDriver().quit();
 		}
 	@Test(groups="regression")
 	public void  MYPROFILEEDIT() throws Throwable {
 		homepage = new Homepage();
-		MYPROFILEtest profilecreation = homepage.myprofile();
+		profilecreation = homepage.myprofile();
 		//boolean results = Ticketcreation.validateticketcreatepage();
 		// Assert.assertTrue(results);
 		profilecreation.myprofile1();
 		
-		profilecreation.entername("");
-		profilecreation.enterconpassword("");
-		profilecreation.enteremail("");
-		profilecreation.enterpassword("");
-		profilecreation.enterphoneno("");
-		profilecreation.clickonsaveprofilebutton();
+		profilecreation.entername("anisha");
+		profilecreation.enterconpassword("uZXTHbN6#Xg!L");
+		profilecreation.enteremail("anishaj@novatechset.com");
+		profilecreation.enterpassword("uZXTHbN6#Xg!L");
+		profilecreation.enterphoneno("9856741230");
+		homepage=profilecreation.clickonsaveprofilebutton();
 	}
 }

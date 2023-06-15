@@ -1,6 +1,7 @@
 package com.pageobjects;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.base.BASEclass;
 import com.mystore.actiondriver.Actionsclass;
+import com.utility.Log;
 
 public class Homepage extends BASEclass {
 //all page common functions
@@ -78,111 +80,191 @@ public class Homepage extends BASEclass {
 	}
     
 	public MYPROFILEtest myprofile() throws Throwable {
+		Log.info("click on the profile icon option");
 		Actionsclass.click(getDriver(), iconprofilebutton);
 		return new MYPROFILEtest();
 		
 	}
 	
 	
-	public void agentticketpage() throws Throwable {
+	public Ticketseditpage agentticketpage() throws Throwable {
+		Log.info("click on the tickets tab page");
 		Actionsclass.click(getDriver(), agentticketpage);
+		return new Ticketseditpage();
 		
 	}
 	
 	public void refersh() throws Throwable {
+		Log.info("click on the refresh option");
 		Actionsclass.click(getDriver(), refershbutton);
 		
 	}
 	
 	public void notification() throws Throwable {
+		Log.info(" click on the notification option");
 		Actionsclass.click(getDriver(), notification);
 	}
 	
-public Ticketseditpage validatemylist() throws Throwable {
-		
+@SuppressWarnings("deprecation")
+public void validatemylist() throws Throwable {
+	Log.info("click on the each tab  option in tickets tab page");
 		 for(WebElement wed: mylist) {
-			 Thread.sleep(3333);
-			if(wed.getText().trim().equals("Resolved")) {
+			 getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+			if(wed.getText().trim().equalsIgnoreCase("Resolved")) {
 				System.out.println("selected option on web element"+" = "+ wed.getText());
 				Actionsclass.click(getDriver(), wed);
-				eyeviewbutton();
-				break;
-			}
-			else if(wed.getText().trim().equals("Open")) {
-				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Actionsclass.click(getDriver(), wed);
-				
-		        	
-			}else if(wed.getText().trim().equals("Assigned")) {
-				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Thread.sleep(3333);
-				Actionsclass.click(getDriver(), wed);
-				
-			}else if(wed.getText().trim().equals("Inprogress")) {
-				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Thread.sleep(3333);
-				Actionsclass.click(getDriver(), wed);
-				//editthetickets();
+			   //userpencilbutton();   //userlogin 
 				//break;
-			}else if(wed.getText().trim().equals("NeedMoreInformation")) {
+			}
+			else if(wed.getText().trim().equalsIgnoreCase("Open")) {
 				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Thread.sleep(3333);
 				Actionsclass.click(getDriver(), wed);
+				//editthetickets(); //agent and technician
+				//userpencilbutton();	//user
+				//break;
+			}else if(wed.getText().trim().equalsIgnoreCase("Assigned")) {
+				System.out.println("selected option on web element"+" = "+ wed.getText());
 				
-			}else if(wed.getText().trim().equals("All")) {
-				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Thread.sleep(3333);
 				Actionsclass.click(getDriver(), wed);
-			}else if(wed.getText().trim().equals("Reverted")) {
+				//editthetickets();// agent and technician
+				//userpencilbutton();  //user
+				//break;
+			}else if(wed.getText().trim().equalsIgnoreCase("Inprogress")) {
 				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Thread.sleep(3333);
-				Actionsclass.click(getDriver(), wed);
 			
+				Actionsclass.click(getDriver(), wed);
+				//editthetickets();//agent and technician
+				//userpencilbutton();  //user
+				//break;
+			}else if(wed.getText().trim().equalsIgnoreCase("NeedMoreInformation")) {
+				System.out.println("selected option on web element"+" = "+ wed.getText());
+			
+				Actionsclass.click(getDriver(), wed);
+				//editthetickets();//agent and technician
+				//userpencilbutton(); //user
+				//break;
+			}else if(wed.getText().trim().equalsIgnoreCase("All")) {
+				System.out.println("selected option on web element"+" = "+ wed.getText());
+			
+				Actionsclass.click(getDriver(), wed);
+				//editthetickets();//agent and technician
+				//userpencilbutton();  //user
+				//break;
+			}
+			else if(wed.getText().trim().equalsIgnoreCase("Responded")) {
+				System.out.println("selected option on web element"+" = "+ wed.getText());
+			
+				Actionsclass.click(getDriver(), wed);
+				//editthetickets();  //agent and technician
+				//userpencilbutton(); //user
+				//break;
+			}
+			else if(wed.getText().trim().equalsIgnoreCase("Reopen")) {
+				System.out.println("selected option on web element"+" = "+ wed.getText());
+	
+				Actionsclass.click(getDriver(), wed);
+				//editthetickets();  //agent and technician
+				//userpencilbutton();  //user
+				//break;
+			}
+			else if(wed.getText().trim().equalsIgnoreCase("Reverted")) {
+				System.out.println("selected option on web element"+" = "+ wed.getText());
+				
+				Actionsclass.click(getDriver(), wed);
+				   //userpencilbutton();  //user
+				//break; 
 			}
 			
 			}
-		 return new Ticketseditpage();
+		// return new Ticketseditpage();
 		 
 		}
+@SuppressWarnings("deprecation")
+public Ticketseditpage validatemylist1(String input) throws Throwable {
+	Log.info("click on the some particular selected tab in the tickets tab page");
+	 for(WebElement wed: mylist) {
+		 getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		if(wed.getText().trim().equalsIgnoreCase(input)) {
+			System.out.println("selected option on web element"+" = "+ wed.getText());
+			Actionsclass.click(getDriver(), wed);
+		   //userpencilbutton();   //userlogin 
+			agent_pencilbutton();//agent and technician
+		}
+	 }
+	return new Ticketseditpage();
+
+}
+@SuppressWarnings("deprecation")
+public Ticketseditpage validatemylist2(String input) throws Throwable {
+	Log.info("click on the some particular selected tab in the tickets tab page");
+	 for(WebElement wed: mylist) {
+		 getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		if(wed.getText().trim().equalsIgnoreCase(input)) {
+			System.out.println("selected option on web element"+" = "+ wed.getText());
+			Actionsclass.click(getDriver(), wed);
+		   userpencilbutton();   //userlogin 
+			
+		}
+	 }
+	return new Ticketseditpage();
+
+}
 //new ticket creation
 	public Ticketcreation ticketscreationbutton() throws Throwable {
+		Log.info("click on the new tickets creation button");
 		Actionsclass.click(getDriver(),  tickets);
 		return new Ticketcreation();
 	}
 	
 	public STRARTTIMEtest startedtime() throws Throwable {
+		Log.info("click on the date starttime details");
 		Actionsclass.click(getDriver(),  starttime);
 		return new STRARTTIMEtest();
 	}
 	public Ticketcreation endtime() throws Throwable {
+		Log.info("click on the date endtime details");
 		Actionsclass.click(getDriver(),  endtime);
 		return new Ticketcreation();
 	}
 
 // search option for all common functions
-	public  void searchtickets(String ticketname) throws Throwable {
+	public  Ticketseditpage searchtickets(String ticketname) throws Throwable {
+		Log.info("user enter to the search option to search the tickets");
 		Actionsclass.type(Searchtickets, ticketname);
 		Actionsclass.click(getDriver(),  Searchtickets);	
+		return new Ticketseditpage();
 	}
-	public Searchresultspage eyeviewbutton() throws Throwable {
+	public void userpencilbutton() throws Throwable {
+		Log.info("user click on the pencil icon ");
 		Actionsclass.click(getDriver(), eyeviewbuttonclick);
-		return new  Searchresultspage();
+		//return new  Searchresultspage();
+		//return new Ticketseditpage();
+	}
+	public void agent_pencilbutton() throws Throwable {
+		Log.info("agent or techinican  click on the pencil icon ");
+		Actionsclass.click(getDriver(), pencilbuttonclick);
+		//return new  Searchresultspage();
+		//return new Ticketseditpage();
 	}
 	public TIMEline timeline() throws Throwable {
+		Log.info(" end user click on the timeline icon ");
 		Actionsclass.click(getDriver(), timelinebuttonclick);
 		return new TIMEline();
 	}
 	public TIMEline timeline1() throws Throwable {
+		Log.info("agent or tech click on the timeline icon ");
 		Actionsclass.click(getDriver(), timelineagentbutton);
 		return new TIMEline();
 	}
 // download option functions
 	public void  exceldown() throws Throwable {
+		Log.info("click on the excel and pdf option download ");
 		Actionsclass.click(getDriver(), ExcelDOWNbutton);
 		Actionsclass.click(getDriver(), PDFDOWNbutton);
 	}
 //sla PAGE
 	public SLAPAGE  sla() throws Throwable {
+		Log.info("click on the sla tab page ");
 		Actionsclass.click(getDriver(), SLAConfigurepage);
 		Actionsclass.click(getDriver(), SLAConfiguredropdownclick);
 		return new SLAPAGE();
@@ -190,18 +272,21 @@ public Ticketseditpage validatemylist() throws Throwable {
 	
 //TICKETS REPORTS
 	public report  TICKTSreport() throws Throwable {
+		Log.info("click on the tickets reports tab page ");
 		Actionsclass.click(getDriver(), agentticketreportspage);
 		Actionsclass.click(getDriver(),ticketreportdropdownclick);
 		return new report();
 	}
 //chart REPORTS
 	public report  chartreport() throws Throwable {
+		Log.info("click on the chart reports tab page ");
 		Actionsclass.click(getDriver(), agentticketreportspage);
 		Actionsclass.click(getDriver(),ticketreportdropdownclick);
 		return new report();
 	}
 //new empolyee created
 		public EMPLOYEEcreated  employee() throws Throwable {
+			Log.info("new employee created function ");
 			Actionsclass.click(getDriver(), employeetappage);
 			
 			return new EMPLOYEEcreated();

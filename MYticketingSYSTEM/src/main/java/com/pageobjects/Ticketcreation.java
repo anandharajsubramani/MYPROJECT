@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.base.BASEclass;
 import com.mystore.actiondriver.Actionsclass;
+import com.utility.Log;
 
 public class Ticketcreation extends BASEclass {
 
@@ -51,21 +52,26 @@ public class Ticketcreation extends BASEclass {
      
      
 	public void entertitle(String titledes) throws Throwable {
+		Log.info("enter the title ");
 		Actionsclass.type(title, titledes);
 		
 	}
 	
 	
 	public void selectpriority( int i) throws Throwable {
+		Log.info("select the priority ");
 		Actionsclass.selectByIndex( Priority, i);
 	}
 	public void selecttool(int t) throws Throwable {
+		Log.info("enter the tool");
 		Actionsclass.selectByIndex( department, t);
 	}
 	public void selectpublisher(int d) throws Throwable {
+		Log.info("enter the publisher");
 		Actionsclass.selectByIndex( publisher, d);
 	}
 	public void enterdescription(String des) throws Throwable {
+		Log.info("enter the des");
 		Actionsclass.type(Description, des);
 	}
 	

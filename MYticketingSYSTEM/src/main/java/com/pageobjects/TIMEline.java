@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.base.BASEclass;
 import com.mystore.actiondriver.Actionsclass;
+import com.utility.Log;
 
 public class TIMEline extends BASEclass {
 
@@ -16,6 +17,7 @@ public class TIMEline extends BASEclass {
 			PageFactory.initElements(getDriver(), this);
 		}
 	 public Homepage myprofile() throws Throwable {
+		 Log.info("timeline function ");
 			Actionsclass.click(getDriver(), cancelbutton);
 			return new Homepage();
 			

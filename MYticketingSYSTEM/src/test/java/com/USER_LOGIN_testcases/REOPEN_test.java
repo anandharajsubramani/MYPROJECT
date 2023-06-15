@@ -7,8 +7,10 @@ import org.testng.annotations.Test;
 
 import com.base.BASEclass;
 import com.pageobjects.Homepage;
+import com.pageobjects.MYPROFILEtest;
 import com.pageobjects.Ticketcreation;
 import com.pageobjects.Ticketseditpage;
+import com.utility.Log;
 
 public class REOPEN_test  extends BASEclass{
 	Homepage homepage ;
@@ -27,20 +29,18 @@ public class REOPEN_test  extends BASEclass{
 	@AfterMethod(groups=  {"smoke","sanity","regression"})
 	public void teardown() throws Throwable {
 		
-		System.out.println("m,;lfbdg");
-		Thread.sleep(2222);
-		logout.myprofile();
-		// logout.logout();
-	//	driver.quit();
+		MYPROFILEtest jk = logout.myprofile();
+		 jk.logout();
+		 getDriver().quit();
+		 Log.endTestCase("logout");
 		}
 	@Test(groups="smoke")
 	public void  REOPEN() throws Throwable {
 		 homepage = new Homepage();
 	    
 	     //Thread.sleep(2222);
-	   Ticketseditpage= homepage.validatemylist();
-	  
-	   logout = Ticketseditpage.reopen("fbcxdh");;
+		 Ticketseditpage =homepage.validatemylist2("Resolved");
+	  logout = Ticketseditpage.reopen("problem not resloved");
 	
 	}
 }

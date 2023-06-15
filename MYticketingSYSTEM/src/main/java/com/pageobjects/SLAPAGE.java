@@ -2,12 +2,14 @@ package com.pageobjects;
 
 import java.util.List;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.base.BASEclass;
 import com.mystore.actiondriver.Actionsclass;
+import com.utility.Log;
 
 public class SLAPAGE extends BASEclass {
 	@FindBy(xpath=("//*[@id=\"select2-lstTool-results\"]/li"))
@@ -25,55 +27,23 @@ public class SLAPAGE extends BASEclass {
 		}
 	 
 	 
-public void sladropdown() throws Throwable {
-		
+public Homepage sladropdown(String asd) throws Throwable {
+	Log.info("selct the drop down in the sla page ");
+	try {
 		 for(WebElement wed: sladropdown) {
 			 Thread.sleep(3333);
-			if(wed.getText().trim().equals("SMART")) {
+			if(wed.getText().trim().equalsIgnoreCase(asd)) {
 				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Actionsclass.click(getDriver(), wed);
-			
-			}
-			else if(wed.getText().trim().equals("SESAME ")) {
-				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Actionsclass.click(getDriver(), wed);
-				
-		        	
-			}else if(wed.getText().trim().equals("3B2")) {
-				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Thread.sleep(3333);
-				Actionsclass.click(getDriver(), wed);
-				
-			}else if(wed.getText().trim().equals("INDESIGN")) {
-				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Thread.sleep(3333);
-				Actionsclass.click(getDriver(), wed);
-				
-			}else if(wed.getText().trim().equals("XML PROCESS")) {
-				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Thread.sleep(3333);
-				Actionsclass.click(getDriver(), wed);
-				
-			}else if(wed.getText().trim().equals("Ticketing system")) {
-				System.out.println("selected option on web element"+" = "+ wed.getText());
-				Thread.sleep(3333);
 				Actionsclass.click(getDriver(), wed);
 			}
+		
 			}
-	
-		}
-
-
-public void saveoption() throws Throwable {
-	Actionsclass.click(getDriver(), savebutton);	
-}
-	
-public Homepage updates() throws Throwable {
+	  } 
+	catch(StaleElementReferenceException e) {
+	 
+		Actionsclass.click(getDriver(), savebutton);
+	  }
 	Actionsclass.click(getDriver(), updatedbutton);
-	return new Homepage();
-}
-
-
-
-
+	return new Homepage(); 
+		}
 }

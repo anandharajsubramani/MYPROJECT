@@ -13,6 +13,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.base.BASEclass;
 import com.mystore.actiondriver.Actionsclass;
+import com.utility.Log;
 public class EMPLOYEEcreated extends BASEclass  {
 	 FileInputStream inputStream ;
 	  XSSFSheet sheet;
@@ -63,6 +64,7 @@ public class EMPLOYEEcreated extends BASEclass  {
 		}
 	@SuppressWarnings("unlikely-arg-type")
 	public Logoutpage employeecreated() throws Throwable {
+		Log.info("creating a new employee ");
 	File vc = new  File("D:\\asasd.xlsx");
  inputStream = new FileInputStream(vc);
      workbook = new XSSFWorkbook(inputStream);

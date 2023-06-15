@@ -8,12 +8,15 @@ import org.testng.annotations.Test;
 
 import com.base.BASEclass;
 import com.pageobjects.Homepage;
+import com.pageobjects.MYPROFILEtest;
+import com.pageobjects.Ticketseditpage;
+import com.utility.Log;
 
 public class Homepagetest extends BASEclass {
 	
-	
+	Ticketseditpage logout;
 	Homepage homepage ;
-	
+	MYPROFILEtest jk ;
 	
 	
 	@Parameters("browser")
@@ -26,19 +29,24 @@ public class Homepagetest extends BASEclass {
 	
 	
 	@AfterMethod(groups=  {"smoke","sanity","regression"})
-	public void teardown() {
+	public void teardown() throws Throwable {
+	
+		 jk = homepage.myprofile();
+	    jk.logout();
+		getDriver().quit();
 		
-		System.out.println("m,;lfbdg");
-		//getDriver().quit();
+	      Log.endTestCase("logout");
+	     
 		}
 	
 	@Test(groups="smoke")
 	public void mylist() throws Throwable {
 	 homepage = new Homepage();
     homepage.agentticketpage();
-	homepage.validatemylist();
+    Log.info("check all the list click operation");
+      homepage.validatemylist();
 	 
-	 
+     
 	}
 	
 	

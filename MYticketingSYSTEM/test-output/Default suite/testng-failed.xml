@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.ADMIN_LOGIN_testcases.EMPOLYEE_TEST">
+      <class name="com.USER_LOGIN_testcases.REOPEN_test">
         <methods>
           <include name="launchbrowser1"/>
-          <include name="assignfunction"/>
-          <include name="setup"/>
+          <include name="REOPEN"/>
           <include name="aftersuite"/>
           <include name="teardown"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- com.ADMIN_LOGIN_testcases.EMPOLYEE_TEST -->
+      </class> <!-- com.USER_LOGIN_testcases.REOPEN_test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

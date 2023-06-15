@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.base.BASEclass;
 import com.mystore.actiondriver.Actionsclass;
+import com.utility.Log;
 
 public class report extends BASEclass {
 	
@@ -26,40 +27,16 @@ public class report extends BASEclass {
 	}
  
  
-public void sladropdown() throws Throwable {
-	
+public void ticketsreports(String input) throws Throwable {
+	Log.info("selct the drop down in the tickets reports page ");
 	 for(WebElement wed:  reportsdropdown) {
 		 Thread.sleep(3333);
-		if(wed.getText().trim().equals("SMART")) {
+		if(wed.getText().trim().equals(input)) {
 			System.out.println("selected option on web element"+" = "+ wed.getText());
 			Actionsclass.click(getDriver(), wed);
 		
 		}
-		else if(wed.getText().trim().equals("SESAME ")) {
-			System.out.println("selected option on web element"+" = "+ wed.getText());
-			Actionsclass.click(getDriver(), wed);
-			
-	        	
-		}else if(wed.getText().trim().equals("3B2")) {
-			System.out.println("selected option on web element"+" = "+ wed.getText());
-			Thread.sleep(3333);
-			Actionsclass.click(getDriver(), wed);
-			
-		}else if(wed.getText().trim().equals("INDESIGN")) {
-			System.out.println("selected option on web element"+" = "+ wed.getText());
-			Thread.sleep(3333);
-			Actionsclass.click(getDriver(), wed);
-			
-		}else if(wed.getText().trim().equals("XML PROCESS")) {
-			System.out.println("selected option on web element"+" = "+ wed.getText());
-			Thread.sleep(3333);
-			Actionsclass.click(getDriver(), wed);
-			
-		}else if(wed.getText().trim().equals("Ticketing system")) {
-			System.out.println("selected option on web element"+" = "+ wed.getText());
-			Thread.sleep(3333);
-			Actionsclass.click(getDriver(), wed);
-		}
+		
 		}
 
 	}

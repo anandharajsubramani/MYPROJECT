@@ -7,22 +7,28 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.base.BASEclass;
 import com.mystore.actiondriver.Actionsclass;
+import com.utility.Log;
 
 
 public class Ticketseditpage  extends BASEclass{
-	@FindBy(xpath="//table[@id='tblDashboard']//tbody//tr[position()=(1)]//td[position()=(9)]//i")
+	@FindBy(xpath="//table[@id='tblDashboard']//tbody//tr[position()=(1)]//td[position()=(9)]//i[@title='Info']")
      WebElement pencilbuttonclick;
 	@FindBy(xpath="//table[@id='tblDashboard']//tbody//tr[position()=(1)]//td[position()=(9)]//i")
     WebElement pencilbuttonclick1;
@@ -38,8 +44,8 @@ public class Ticketseditpage  extends BASEclass{
     WebElement assignsavebutton;
 	@FindBy(xpath="/html/body/div[7]/div/div[6]/button[1]")
     WebElement assignupdatedbutton;
-    @FindBy(xpath="//*[@id='Assign-issue']/div/div/div[1]/button/span  ")
-    WebElement assignclosedbutton;
+  //  @FindBy(xpath="//*[@id='Assign-issue']/div/div/div[1]/button/span  ")
+   // WebElement assignclosedbutton;
 	@FindBy(xpath="	//*[@id=\"TicketView\"]/div/div/div[1]/button ")
 	WebElement ticketclosedbutton;
 
@@ -54,10 +60,10 @@ public class Ticketseditpage  extends BASEclass{
 	 WebElement reassign_des;
 	@FindBy(xpath="//*[@id='Reassign'] ")
     WebElement reassignsavebutton;
-	@FindBy(xpath="/html/body/div[6]/div/div[6]/button[1]  ")
+	@FindBy(xpath="/html/body/div[7]/div/div[6]/button[1]  ")
     WebElement reassignupdatedbutton;
-    @FindBy(xpath="//*[@id=\\\"reassign-issue\\\"]/div/div/div[1]/button/span ")
-    WebElement reassignclosedbutton;
+   // @FindBy(xpath="//*[@id=\\\"reassign-issue\\\"]/div/div/div[1]/button/span ")
+   // WebElement reassignclosedbutton;
 	
 	
  // revert button functionality
@@ -69,8 +75,8 @@ public class Ticketseditpage  extends BASEclass{
 	 WebElement revert_sendbutton;
 	@FindBy(xpath="/html/body/div[6]/div/div[6]/button[1]")//html/body/div[6]/div/div[6]/button[1]
     WebElement revertupdatedbutton;
-	 @FindBy(xpath="//*[@id=\"Revertpop\"]/div/div/div[1]/button/span")
-	    WebElement revertclosedbutton;
+	// @FindBy(xpath="//*[@id=\"Revertpop\"]/div/div/div[1]/button/span")
+	  //  WebElement revertclosedbutton;
 	
 // needmoreifo button functionality
 	 @FindBy(xpath="//div[@class='row']//button[@id='need']")
@@ -81,8 +87,8 @@ public class Ticketseditpage  extends BASEclass{
 		 WebElement needmoreinfo_sendbutton;
 		@FindBy(xpath="/html/body/div[6]/div/div[6]/button[1]")
 	    WebElement needmoreinfoupdatedbutton;
-		@FindBy(xpath="//*[@id=\"Needinfo\"]/div/div/div[1]/button/span")
-	    WebElement needmoreinfoclosedbutton;
+		//@FindBy(xpath="//*[@id=\"Needinfo\"]/div/div/div[1]/button/span")
+	    //WebElement needmoreinfoclosedbutton;
 	
 		
 // inprogress button functionality
@@ -120,7 +126,7 @@ public class Ticketseditpage  extends BASEclass{
 	 WebElement Resolvesavedbutton;			
 	@FindBy(xpath="//*[@id=\"resolve\"]/div/div/div[1]/button/span")
 	 WebElement Resolvecanceldbutton;			
-	@FindBy(xpath="/html/body/div[6]/div/div[6]/button[1]")
+	@FindBy(xpath="/html/body/div[8]/div/div[6]/button[1]")
     WebElement reslovedupdatedbutton;		
 				
 	//change due date  functionality			
@@ -128,14 +134,15 @@ public class Ticketseditpage  extends BASEclass{
     WebElement duedatechangebutton;
 	@FindBy(xpath="	//*[@id='text']")
 	 WebElement changeduedate_des;
-		@FindBy(xpath="//*[@id=\\\\'date\\\\']")
+		@FindBy(xpath="//*[@id='date']")
 	 WebElement duedate_setbutton;
 	@FindBy(xpath="//*[@id=\"changeduedates\"] ")
 	 WebElement duedate_sendbutton;			
     @FindBy(xpath="//*[@id=\"Changeduedate\"]/div/div/div[1]/button/span ")
 	 WebElement changeduecanceldbutton;
-	
-	
+    
+    		@FindBy(xpath="/html/body/div[6]/div/div[6]/button[1]")
+    WebElement changedueupdatedbutton;
 	
   //response functionality
     @FindBy(xpath="//div[@class='row']//button[@id='addnote']")
@@ -148,13 +155,13 @@ public class Ticketseditpage  extends BASEclass{
 	 WebElement response_des;
 	@FindBy(xpath="//*[@id=\"addnotess\"] ")
 	 WebElement response_sendbutton;
-	@FindBy(xpath="/html/body/div[6]/div/div[6]/button[1]  ")
+	@FindBy(xpath="/html/body/div[7]/div/div[6]/button[1]")
     WebElement responseupdatedbutton;
-    @FindBy(xpath="//*[@id=\"add-notes\"]/div/div/div[1]/button/span ")
-    WebElement responseclosedbutton;
+  //  @FindBy(xpath="//*[@id=\"add-notes\"]/div/div/div[1]/button/span ")
+ //   WebElement responseclosedbutton;
 	
   //reopen functionality
-	@FindBy(xpath="//*[@id=\"reopen\"] ")
+	@FindBy(xpath="//*[@id='reopen'] ")
 	WebElement reopenbutton;
 	@FindBy(xpath="//*[@id=\"ttt\"]")
 	 WebElement reopen_des;
@@ -184,79 +191,88 @@ public  Ticketseditpage() {
 
 
 public void editthetickets() throws Throwable{
+	Log.info("click on the pencil icon ");
 	Actionsclass.click(getDriver(), pencilbuttonclick);
 	
 }
+public Searchresultspage editthetickets1() throws Throwable{
+	Actionsclass.click(getDriver(), pencilbuttonclick);
+	return new Searchresultspage();
+}
 
-public void assign() throws Throwable {
+public Homepage assign(String des) throws Throwable {
+	Log.info("assign function ");
 		Actionsclass.click(getDriver(), assignbutton);
 		Actionsclass.click(getDriver(), assignnamelist);
-		Thread.sleep(2222);
-		System.out.println("jjjj");
-
+		
+		
 		try {
 			for(WebElement wed:assignbuttonlist) {
-				 Thread.sleep(3333);
-				if(wed.getText().trim().equals("Parveen")) {
+				getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+				if(wed.getText().trim().equalsIgnoreCase(des)) {
 					System.out.println("selected option on web element"+" = "+ wed.getText());
 					wed.click();
 				}
 				}
         } catch(StaleElementReferenceException e) {
-        	Actionsclass.click(getDriver(), assignsavebutton);
+        	//Actionsclass.click(getDriver(), assignsavebutton);
         }
-	     //Actionsclass.click(getDriver(), assignsavebutton);
-		Thread.sleep(2222);
+	     Actionsclass.click(getDriver(), assignsavebutton);
+		Thread.sleep(3222);
 	     Actionsclass.click(getDriver(), assignupdatedbutton);
-	     Actionsclass.click(getDriver(), assignclosedbutton);
-	     //Actionsclass.click(getDriver(), ticketclosedbutton);
-			//return new Homepage();
+	    // Actionsclass.click(getDriver(), assignclosedbutton);
+	     Actionsclass.click(getDriver(), ticketclosedbutton);
+			return new Homepage();
 	}
 public Homepage Revert(String des) throws Throwable {
+	Log.info("revert function ");
  	 Actionsclass.click(getDriver(),revertbutton);
 		Thread.sleep(2222);
 		 Actionsclass.type(revert_des,des );
 		 
 		 Actionsclass.click(getDriver(),revert_sendbutton);
+		 Thread.sleep(2222);
 		  Actionsclass.click(getDriver(), revertupdatedbutton);
-		     Actionsclass.click(getDriver(), revertclosedbutton);
+		   //  Actionsclass.click(getDriver(), revertclosedbutton);
 		     Actionsclass.click(getDriver(), ticketclosedbutton);
 		 return new Homepage();
 	
 	}
 public Homepage Resolved(String des) throws Throwable {
+	Log.info("resolved function ");
 		Actionsclass.click(getDriver(), Resolvedbutton);
 		Thread.sleep(2222);
 		 Actionsclass.type(Resolvedesdbutton,des );
 		 Actionsclass.click(getDriver(),Resolvesavedbutton);
 		 Thread.sleep(2222);
 		  Actionsclass.click(getDriver(), reslovedupdatedbutton);
-		     Actionsclass.click(getDriver(), Resolvecanceldbutton);
+		    // Actionsclass.click(getDriver(), Resolvecanceldbutton);
+		  Thread.sleep(2222);
 		     Actionsclass.click(getDriver(), ticketclosedbutton);
 		 return new Homepage();	  
 	}
 	
 	
 public Homepage need(String des) throws Throwable {
+	Log.info("needmore function ");
 		Actionsclass.click(getDriver(), needmorebutton);
 			Actionsclass.click(getDriver(),needmorebutton);
-			Thread.sleep(2222);
+			
 			 Actionsclass.type(needmoreinfo_des,des );
 			 Actionsclass.click(getDriver(),needmoreinfo_sendbutton);
-			 Thread.sleep(2222);
+			 getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 			  Actionsclass.click(getDriver(), needmoreinfoupdatedbutton);
-			     Actionsclass.click(getDriver(), needmoreinfoclosedbutton);
+			   //  Actionsclass.click(getDriver(), needmoreinfoclosedbutton);
 			     Actionsclass.click(getDriver(), ticketclosedbutton);
 			 return new Homepage();
 		
 	}
 public Homepage split(String des,int d,String des1,int g) throws Throwable {
+	Log.info("split function ");
 		Actionsclass.click(getDriver(),splitbutton);
-		Thread.sleep(2000);
+		getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		 Actionsclass.type(split_title,des );
-		 Thread.sleep(2000);
 		 Actionsclass.selectByIndex( split_tool, d);
-		 Thread.sleep(2000);
 		 Actionsclass.selectByIndex( split_dept, g);
 		 Actionsclass.type(split_des,des1 );
 		/* Actionsclass.click(getDriver(),split_choosefile);
@@ -277,38 +293,42 @@ public Homepage split(String des,int d,String des1,int g) throws Throwable {
 			 return new Homepage();
 	}
 	
-public Homepage change(String des,int d) throws Throwable {
+public void change(String des,String d) throws Throwable {
+	Log.info("change due date function ");
 		Actionsclass.click(getDriver(),duedatechangebutton);
 		Thread.sleep(2222);
 		 Actionsclass.type(changeduedate_des,des );
-		 Actionsclass.selectByIndex(duedate_setbutton, d);
+		 Thread.sleep(2222);
+		 Actionsclass.click(getDriver(),duedate_setbutton);
+		 Actionsclass.type(duedate_setbutton, d);
 		 Actionsclass.click(getDriver(),duedate_sendbutton);
-		 Actionsclass.click(getDriver(),changeduecanceldbutton);
-		 Actionsclass.click(getDriver(), ticketclosedbutton);
-		 return new Homepage();
+		 //Actionsclass.click(getDriver(),changeduecanceldbutton);
+		 Thread.sleep(2222);
+		 Actionsclass.click(getDriver(), changedueupdatedbutton);
+		 
+		// Actionsclass.click(getDriver(), ticketclosedbutton);
+		 //return new Homepage();
 	
 	}
-public void inprogress() throws Throwable {
-		
+public Homepage inprogress() throws Throwable {
+	Log.info("inprogress function ");
 		Actionsclass.click(getDriver(),inprogressbutton);
 		 Actionsclass.click(getDriver(),inprogress_sendbutton);
-		 Thread.sleep(2000);
+		 getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		 Actionsclass.click(getDriver(), inprgressupdatedbutton);
-		 //  Actionsclass.click(getDriver(), ticketclosedbutton);
-		 //return new Homepage();
+		 //Actionsclass.click(getDriver(), ticketclosedbutton);
+		 return new Homepage();
 	 }
-public Homepage reassign(String des) throws Throwable {
-	
+public Homepage reassign(String des,String input) throws Throwable {
+	Log.info("reassign function ");
 		Actionsclass.click(getDriver(), reassignbutton);
 		 Actionsclass.type(reassign_des,des );
 		Actionsclass.click(getDriver(), reassignnamelist);
-		Thread.sleep(2222);
-		System.out.println("jjjj");
-
+		getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		try {
 			for(WebElement wed:reassignbuttonlist) {
-				 Thread.sleep(3333);
-				if(wed.getText().trim().equals("Parveen")) {
+				getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+				if(wed.getText().trim().equals(input)) {
 					System.out.println("selected option on web element"+" = "+ wed.getText());
 					wed.click();
 				}
@@ -317,56 +337,77 @@ public Homepage reassign(String des) throws Throwable {
         	Actionsclass.click(getDriver(), reassignsavebutton);
         }
 	     Actionsclass.click(getDriver(), reassignsavebutton);
+	     getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	     Actionsclass.click(getDriver(), reassignupdatedbutton);
-	     Actionsclass.click(getDriver(), reassignclosedbutton);
+	    // Actionsclass.click(getDriver(), reassignclosedbutton);
 	     Actionsclass.click(getDriver(), ticketclosedbutton);
 			return new Homepage();		
 		
 	}
-public Homepage  Response(String des) throws Throwable {
-	
-			Actionsclass.click(getDriver(),Responsebutton);
-			Thread.sleep(2222);
+public void Response(String des,String des1) throws Throwable {
+	Log.info("response function ");
+//	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	//WebDriverWait wait= new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+	//   WebElement elm = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='addnote']")));
+	//elm.click();
+	JavascriptExecutor js = (JavascriptExecutor)getDriver();
+	 js.executeScript("arguments[0].click();", Responsebutton);
+			//Actionsclass.click(getDriver(),Responsebutton);
+			
 			Actionsclass.type(response_des,des );
-			Thread.sleep(2222);
+			getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 			Actionsclass.click(getDriver(), responsdebuttonlist);
 			
 			System.out.println("jjjj");
 
 			try {
 				for(WebElement wed:responsenamelist) {
-					 Thread.sleep(3333);
-					if(wed.getText().trim().equals("FIRST RESPONSE")) {
+					 Thread.sleep(2000);
+					if(wed.getText().trim().equalsIgnoreCase(des1)) {
 						System.out.println("selected option on web element"+" = "+ wed.getText());
 						wed.click();
 					}
 					}
 	        }
 			
-			catch(StaleElementReferenceException e) {
-				Thread.sleep(2222);
-	        	Actionsclass.click(getDriver(), response_sendbutton);
+			catch(Exception e) {
+				
 	        }
 		    
-			Thread.sleep(2222);
-		     Actionsclass.click(getDriver(), responseupdatedbutton);
-		     Actionsclass.click(getDriver(), responseclosedbutton);
-		     Actionsclass.click(getDriver(), ticketclosedbutton);
-				return new Homepage();
 			
+        	Actionsclass.click(getDriver(), response_sendbutton);
+        	getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+         Actionsclass.click(getDriver(),responseupdatedbutton);
+		   //  Actionsclass.click(getDriver(), responseclosedbutton);
+		    // Actionsclass.click(getDriver(), ticketclosedbutton);
+				//return new Homepage();
+    		   //  Actionsclass.click(getDriver(), responseclosedbutton);
+    		    // Actionsclass.click(getDriver(), ticketclosedbutton);
+    				//return new Homepage();
+     
 	}
+
 	public Homepage reopen(String des) throws Throwable {
+		Log.info("reopen function ");
+		Thread.sleep(1000);
+		getDriver().manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 		Actionsclass.click(getDriver(),reopenbutton);
-		Thread.sleep(2222);
+	
 		 Actionsclass.type(reopen_des,des );
-		 Thread.sleep(2222);
+		 getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		 Actionsclass.click(getDriver(),reopensavebutton);
 		 return new Homepage();
 	}
+	@SuppressWarnings("deprecation")
 	public Homepage close() throws Throwable {
+		Log.info("closed function ");
+		getDriver().manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 		Actionsclass.click(getDriver(),closebutton);
+		Thread.sleep(2000);
+		getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		Actionsclass.click(getDriver(),closedokbutton);
-		Thread.sleep(2222);
+		getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		Thread.sleep(2000);
 		Actionsclass.click(getDriver(),closedupdatedbutton);
 		Actionsclass.click(getDriver(), ticketclosedbutton);
 		return new Homepage();
@@ -375,6 +416,7 @@ public Homepage  Response(String des) throws Throwable {
 	}
 	
 public void download() throws Throwable {
+	Log.info("download function ");
 	Actionsclass.click(getDriver(), download_button);
 	//driver.findElement(By.xpath("//*[@id=\"filedownload\"]")).click();
 	File filelocation = new File("C:\\Users\\2662\\Downloads");

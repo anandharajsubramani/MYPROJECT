@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.base.BASEclass;
 import com.mystore.actiondriver.Actionsclass;
+import com.utility.Log;
 
 public class Logoutpage extends BASEclass{
 		@FindBy(xpath="//div[@class='pros-sml']")
@@ -17,12 +18,14 @@ public class Logoutpage extends BASEclass{
 			PageFactory.initElements(getDriver(), this);
 		}
 		public void myprofile111() throws Throwable {
+			Log.info("edit profile button");
 			Actionsclass.click(getDriver(), iconprofilebutton);
 			
 			
 		}
 		
 		public void logout() throws Throwable {
+			Log.info("click on the sign out page ");
 			Actionsclass.click(getDriver(), signout);
 			
 		}

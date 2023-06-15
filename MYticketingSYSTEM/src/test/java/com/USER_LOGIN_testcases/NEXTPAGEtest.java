@@ -7,11 +7,14 @@ import org.testng.annotations.Test;
 
 import com.base.BASEclass;
 import com.pageobjects.Homepage;
+import com.pageobjects.MYPROFILEtest;
 import com.pageobjects.NEXTANDPRIVIOUSPAGEtest;
 import com.pageobjects.Searchresultspage;
+import com.utility.Log;
 
 public class NEXTPAGEtest extends BASEclass{
 	NEXTANDPRIVIOUSPAGEtest vv;
+	Homepage hhk;
 	Searchresultspage searchresultpage;
 	@Parameters("browser")
 	@BeforeMethod(groups=  {"smoke","sanity","regression"})
@@ -22,14 +25,15 @@ public class NEXTPAGEtest extends BASEclass{
 	
 	
 	@AfterMethod(groups=  {"smoke","sanity","regression"})
-	public void teardown() {
-		
-		System.out.println("m,;lfbdg");
-		//driver.quit();
+	public void teardown() throws Throwable {
+		MYPROFILEtest cb = hhk.myprofile();
+		cb.logout();
+			getDriver().quit();
+			Log.endTestCase("logout");
 		}
 	@Test(groups="sanity")
 	public void  searchtestANDNEXTPAGE() throws Throwable {
  vv = new NEXTANDPRIVIOUSPAGEtest();
-		vv.nextpage();
+		 hhk = vv.nextpage();
 	}
 }
